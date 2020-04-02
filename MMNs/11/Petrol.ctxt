@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.target=Petrol
+comment0.text=\r\n\ This\ class\ will\ print\ the\ conversion\ between\r\n\ miles\ per\ gallon\ to\ liters\ per\ 100\ km\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-comment1.text=\r\n\ this\ function\ will\ get\ miles\ for\ one\ gallon\r\n\ convert\ it\ to\ liters\ per\ 100\ km\r\n\ print\ the\ result\r\n
+comment1.text=\r\n\ this\ function\ will\ get\ miles\ per\ one\ gallon\r\n\ convert\ it\ to\ liters\ per\ 100\ km\r\n\ print\ the\ result\r\n
 numComments=2

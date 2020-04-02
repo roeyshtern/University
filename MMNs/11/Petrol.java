@@ -1,12 +1,18 @@
 /*
-This class will prints calculation of the conevertion between
-miles per gallon to liters per 100 km
+ * filename: Petrol.java
+ * Author: Roey Shtern
+ * Date 02/04/2020
 */
+
 import java.util.Scanner;
+/*
+ * This class will print the conversion between
+ * miles per gallon to liters per 100 km
+*/
 public class Petrol
 {
     /*
-     * this function will get miles for one gallon
+     * this function will get miles per one gallon
      * convert it to liters per 100 km
      * print the result
     */
@@ -27,17 +33,15 @@ public class Petrol
         
         double kilomteresPerGallon = milesPerGallon * ONE_MILE_TO_KILOMETERS;
         
-        // Calculate how much gallons this car needs to drive 100 km
-        double howMuchGallonPerOneHundredKilometer = NUMBER_OF_KILOMETERS / kilomteresPerGallon;
+        double gallonsPerOneHundredKm = NUMBER_OF_KILOMETERS / kilomteresPerGallon;
         
-        // Calculate how much liters this car needs to drive 100 km
-        double gallonsToLiteres = ONE_GALLON_TO_LITERS * howMuchGallonPerOneHundredKilometer;
+        double gallonsToLiteres = ONE_GALLON_TO_LITERS * gallonsPerOneHundredKm;
         
         // Round the answer to two digit after the dot
-        double litersPerOneHundredKilometer = Math.round(gallonsToLiteres * MAX) / (MAX * 1.0);
+        double litersPerOneHundredKm = Math.round(gallonsToLiteres * MAX) / (MAX * 1.0);
         
         // Output
         System.out.println("The car's petrol consumption converted to liters/100km is:\n" +
-                           litersPerOneHundredKilometer);
+                           litersPerOneHundredKm);
     } // end of method main
-} // end of class main
+} // end of class Petrol
