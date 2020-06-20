@@ -2,7 +2,7 @@ public class Ex14
 {
     public static void main(String [] args)
     {
-        int[] arr = new int[]{-8, -10, 4, 2, 1, -2, 3, 10, 18};
+        int[] arr = new int[]{100, -10, 100, 99, 2, 1, -2, 3, 10, 18};
         int[][] drm = new int[][]{
             new int[]{2, 0, 1, 2, 3},
             new int[]{2, 3, 5, 5, 4},
@@ -13,7 +13,8 @@ public class Ex14
         int[] arr1 = new int[]{1, 1, 1, 9}; // only one at the side
         System.out.println("isOddBIgger: " + isOddBigger(arr1, 0, 0, 0));
         //win(arr); //must be even n items
-        //findTriplet(arr);
+        System.out.println("find");
+        findTriplet(arr);
         //System.out.println("count: " + count("subsequence", "sue"));
         //System.out.println(String.format("drm.length=%d, drm[0].length=%d", drm.length, drm[0].length));
         //int min = findMin(-1,-1,0,-1);
@@ -65,7 +66,7 @@ public class Ex14
         }
         else
         {
-            System.out.println("Final score:");
+            System.out.println("Final Score:");
             System.out.println("Amir total " + amirSum);
             System.out.println("Tamar total " + tamarSum);
         }
@@ -77,16 +78,11 @@ public class Ex14
     }
     public static int findTriplet(int[] arr)
     {
-        int firstMax = findMaxWithout(arr, 0, -1, 0);
-        //System.out.println("firstMax: " + firstMax);
+        int firstMax = findMaxWithout(arr, 0, -1, -1, 0);
         int firstMin = findMinWithout(arr, 0, -1, 0);
-        //System.out.println("firstMin: " + firstMin);
-        int secondMax = findMaxWithout(arr, firstMin, firstMax, 0);
-        //System.out.println("secondMax: " + secondMax);
-        int thirdMax = findMaxWithout(arr, firstMin, secondMax, 0);
-        //System.out.println("thirdMax: " + thirdMax);
+        int secondMax = findMaxWithout(arr, firstMin, firstMax, -1, 0);
+        int thirdMax = findMaxWithout(arr, firstMin, firstMax, secondMax, 0);
         int secondMin = findMinWithout(arr, firstMax, firstMin, 0);
-        //System.out.println("secondMin: " + secondMin);
         firstMax = arr[firstMax];
         secondMax = arr[secondMax];
         thirdMax = arr[thirdMax];
@@ -97,28 +93,23 @@ public class Ex14
         if(firstSum > secondSum)
         {
             System.out.println(firstMax + " " + secondMax + " " + thirdMax);
-            System.out.println(firstMax + "*" + secondMax + "*" + thirdMax + "=" + firstSum);
             return firstSum;
         }
         else
         {
             System.out.println(firstMax + " " + firstMin + " " + secondMin);
-            System.out.println(firstMax + "*" + firstMin + "*" + secondMin + "=" + secondSum);
             return secondSum;
         }
     }
-    public static int findMaxWithout(int[] arr, int maxIndex, int maxWithoutIndex, int i)
+    public static int findMaxWithout(int[] arr, int maxIndex, int maxWithoutIndex, int secondMaxWithoutIndex, int i)
     {
         if(i < arr.length)
         {
-            //System.out.println("arr[i] > arr[maxIndex]: " + arr[i] + " " + arr[maxIndex]);
-            //System.out.println("maxWithoutIndex= " + maxWithoutIndex);
-            //System.out.println("i: " + i);
-            if(arr[i] > arr[maxIndex] && (maxWithoutIndex == -1 || arr[i] <= arr[maxWithoutIndex]) && i != maxWithoutIndex)
+            if(arr[i] > arr[maxIndex] && (maxWithoutIndex == -1 || arr[i] <= arr[maxWithoutIndex]) && i != maxWithoutIndex && i != secondMaxWithoutIndex)
             {
                 maxIndex = i;
             }
-            return findMaxWithout(arr, maxIndex, maxWithoutIndex, ++i);
+            return findMaxWithout(arr, maxIndex, maxWithoutIndex, secondMaxWithoutIndex, ++i);
         }
         else
         {
@@ -129,9 +120,6 @@ public class Ex14
     {
         if(i < arr.length)
         {
-            //System.out.println("arr[i] < arr[minIndex]: " + arr[i] + " " + arr[minIndex]);
-            //System.out.println("minWithoutIndex= " + minWithoutIndex);
-            //System.out.println("i: " + i);
             if(arr[i] < arr[minIndex] && (minWithoutIndex == -1 || arr[i] >= arr[minWithoutIndex]) && i != minWithoutIndex)
             {
                 minIndex = i;
@@ -170,11 +158,11 @@ public class Ex14
         int westSum = -1;
         int northSum = -1;
         int temp = 0;
-        System.out.println("Current cell i,j = " + i + "," + j + " drm[i][j]=" + drm[i][j]);
-        printArr(drm);
+        //System.out.println("Current cell i,j = " + i + "," + j + " drm[i][j]=" + drm[i][j]);
+        //printArr(drm);
         if(drm[i][j] == -1)
         {
-            System.out.println("\tReached to evil! i,j = " + i + "," + j);
+            //System.out.println("\tReached to evil! i,j = " + i + "," + j);
             return 1;
         }
         temp = drm[i][j];
@@ -182,7 +170,7 @@ public class Ex14
         //east move
         if(isMovable(drm, i, j, i, j + 1))
         {
-            System.out.println(String.format("\tCan move east! i,j = %d, %d next i=%d, next j=%d", i, j, i, j+1));
+            //System.out.println(String.format("\tCan move east! i,j = %d, %d next i=%d, next j=%d", i, j, i, j+1));
             drm[i][j] = -2;
             eastSum = prince(drm, i, j + 1);
             drm[i][j] = temp;
@@ -190,7 +178,7 @@ public class Ex14
         //south move
         if(isMovable(drm, i, j, i + 1, j))
         {
-            System.out.println(String.format("\tCan move south! i,j = %d, %d next i=%d, next j=%d", i, j, i+1, j));
+            //System.out.println(String.format("\tCan move south! i,j = %d, %d next i=%d, next j=%d", i, j, i+1, j));
             drm[i][j] = -2;
             southSum = prince(drm, i + 1, j);
             drm[i][j] = temp;
@@ -198,7 +186,7 @@ public class Ex14
         //west move
         if(isMovable(drm, i, j, i, j - 1))
         {
-            System.out.println(String.format("\tCan move west! i,j = %d, %d next i=%d, next j=%d", i, j, i, j-1));
+            //System.out.println(String.format("\tCan move west! i,j = %d, %d next i=%d, next j=%d", i, j, i, j-1));
             drm[i][j] = -2;
             westSum = prince(drm, i, j - 1);
             drm[i][j] = temp;
@@ -206,21 +194,21 @@ public class Ex14
         //north move
         if(isMovable(drm, i, j, i - 1, j))
         {
-            System.out.println(String.format("\tCan move north! i,j = %d, %d next i=%d, next j=%d", i, j, i-1, j));
+            //System.out.println(String.format("\tCan move north! i,j = %d, %d next i=%d, next j=%d", i, j, i-1, j));
             drm[i][j] = -2;
             northSum = prince(drm, i - 1, j);
             drm[i][j] = temp;
         }
-        System.out.println(String.format("\teastSum=%d, southSum=%d, westSum=%d, northSum=%d", eastSum, southSum, westSum, northSum));
+        //System.out.println(String.format("\teastSum=%d, southSum=%d, westSum=%d, northSum=%d", eastSum, southSum, westSum, northSum));
         int min = findMin(eastSum, southSum, westSum, northSum) + 1;
-        System.out.println("\tmin is= " + min);
+        //System.out.println("\tmin is= " + min);
         return min;
     }
     public static boolean isMovable(int drm[][], int i, int j, int iToMove, int jToMove)
     {
         if(drm.length > iToMove && iToMove >= 0 && drm[0].length > jToMove && jToMove >= 0)
         {
-            System.out.println(String.format("\tIn the borders current i=%d, j=%d, nexti=%d, nextj=%d", i, j, iToMove, jToMove));
+            //System.out.println(String.format("\tIn the borders current i=%d, j=%d, nexti=%d, nextj=%d", i, j, iToMove, jToMove));
             if(drm[iToMove][jToMove] == -1 ||
             (drm[iToMove][jToMove]!= -2 &&
             (drm[i][j] + 1 == drm[iToMove][jToMove] ||
