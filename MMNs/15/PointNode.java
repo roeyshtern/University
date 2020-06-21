@@ -1,33 +1,73 @@
-
 /**
- * Write a description of class PointNode here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * PointNode - Represent PointNode in linked list of Points
+ * @Author : Roey Shtern
+ * @Version : 21/6/2020
  */
 public class PointNode
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+    //instance variables
+    private Point _point;
+    private PointNode _next;
     /**
-     * Constructor for objects of class PointNode
+     * Constructs a PointNode object. 
+     * Construct a new point node instance with the specified point and set next to null
+     * @param p point to set for the new instance
      */
-    public PointNode()
+    public PointNode(Point p)
     {
-        // initialise instance variables
-        x = 0;
+        this._point = new Point(p);
+        this._next = null;
     }
-
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Constructs a PointNode object. 
+     * Construct a new point node instance with the specified point and next PointNode
+     * @param p point to set for the new instance
+     * @param n PointNode to set for the new instance
      */
-    public int sampleMethod(int y)
+    public PointNode(Point p, PointNode n)
     {
-        // put your code here
-        return x + y;
+        this._point = new Point(p);
+        this._next = n;
+    }
+    /**
+     * Copy constructor for PointNode. Construct a point node with new point with the same values and with the same next
+     * @param p The point node object from which to construct the new point node
+     */
+    public PointNode(PointNode p)
+    {
+        this._point = new Point(p._point);
+        this._next = p._next;
+    }
+    /**
+     * Returns new point instance with the same values as this pointnode's point.
+     * @return new point instance with the same values as this pointnode's point.
+     */
+    public Point getPoint()
+    {
+        return new Point(this._point);
+    }
+    /**
+     * Returns the next value of the point node.
+     * @return the next value of the point node.
+     */
+    public PointNode getNext()
+    {
+        return this._next;
+    }
+    /**
+     * Changes the point of this PointNode
+     * @param p The new point
+     */
+    public void setPoint(Point p)
+    {
+        this._point = new Point(p);
+    }
+    /**
+     * Changes the next of this PointNode
+     * @param next The new next
+     */
+    public void setNext(PointNode next)
+    {
+        this._next = next;
     }
 }

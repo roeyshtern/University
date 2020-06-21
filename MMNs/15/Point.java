@@ -20,7 +20,7 @@ public class Point
         _y = y;
     }
     /**
-     * Copy constructor for Point. Construct a point with the same instance variables as another time.
+     * Copy constructor for Point. Construct a point with the same instance variables as another point.
      * @param other The point object from which to construct the new point
      */
     public Point(Point other)
