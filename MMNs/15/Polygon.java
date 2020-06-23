@@ -23,14 +23,14 @@ public class Polygon
      * if the position is bigger by one from the length of list than the point will be added to the end of the list
      * if the pos is bigger by two or more or less than 1 than the function return false and not insert the point
      * Time complexity: 9 + 4*n = O(n)
-     * Space complexity: NEED TO BE CHANGED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+     * Space complexity: O(1) - final no dynamic allocations
      * @param p the point to add to polygon
      * @param pos the position that the point will be inserted in the list
      * @return true if added and false if cannot add the point to the list
      */
     public boolean addVertex(Point p, int pos)
     {
-        if(pos < 1)
+        if(pos < 1 || p == null)
         {
             return false;
         }
@@ -67,7 +67,7 @@ public class Polygon
     /**
      * This function returns copy of the highest vertex, if there is no vertices return null
      * Time complexity: 4 + 4*n = O(n)
-     * Space complexity: NEED TO BE CHANGED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+     * Space complexity: O(1) - final no dynamic allocations
      * @return copy of the highest vertex, if there is no vertices return null
      */
     public Point highestVertex()
@@ -149,13 +149,12 @@ public class Polygon
         return distance;
     }
     /**
-     * Needed to Remove the comment!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
      * Returns the area of the polygon, if there is less than 3 vertices than returns 0
      * Time complexity: 7*n - 4 = O(n)
-     * Space complexity: 
+     * Space complexity: O(1) - final no dynamic allocations
      * @return the area of the polygon, if there is less than 3 vertices than returns 0
      */
-    private double calcArea()
+    public double calcArea()
     {
         if(this._head == null || this._head.getNext() == null || this._head.getNext().getNext() == null)
         {
@@ -165,14 +164,19 @@ public class Polygon
         PointNode curr = this._head.getNext();
         while(curr.getNext() != null)
         {
-            double distanceHeadToCurr = 0;//a - distance from head to curr
-            double distanceCurrToNext = 0;//b - distance from curr to curr.next
-            double distanceHeadToNext = 0;//c - distance from head to curr.next
-            double s = (distanceHeadToCurr + distanceCurrToNext + distanceHeadToNext)/2.0; //s is half the permiter of the triangle between head curr and curr.next
-            area += s*(s-distanceHeadToCurr)*(s-distanceCurrToNext)*(s-distanceHeadToNext);// Heron Formula: s(s-a)(s-b)(s-c)
+            area += getAreaOfTriangle(this._head, curr, curr.getNext());
             curr = curr.getNext();
         }
         return area;
+    }
+    // calculate the area of of trinalge accordsing to heron formula
+    private double getAreaOfTriangle(PointNode head, PointNode curr, PointNode currNext)
+    {
+        double distanceHeadToCurr = head.getPoint().distance(curr.getPoint());//a - distance from head to curr
+        double distanceCurrToNext = curr.getPoint().distance(currNext.getPoint());//b - distance from curr to curr.next
+        double distanceHeadToNext = head.getPoint().distance(currNext.getPoint());//c - distance from head to curr.next
+        double s = (distanceHeadToCurr + distanceCurrToNext + distanceHeadToNext)/2.0; //s is half the permiter of the triangle between head curr and curr.next
+        return s*(s-distanceHeadToCurr)*(s-distanceCurrToNext)*(s-distanceHeadToNext);// Heron Formula: s(s-a)(s-b)(s-c)
     }
     /**
      * Returns true if this polygin area is bigger than the other area, otherwise false
@@ -182,6 +186,10 @@ public class Polygon
      */
     public boolean isBigger(Polygon other)
     {
+        if(other == null)
+        {
+            return false;
+        }
         return this.calcArea() > other.calcArea();
     }
     /**
@@ -192,7 +200,7 @@ public class Polygon
      */ 
     public int findVertex(Point p)
     {
-        if(_head == null)
+        if(_head == null || p == null)
         {
             return -1;
         }
@@ -213,12 +221,12 @@ public class Polygon
      * Return copy of the next point according to the specified point, if the point is not in the list then returns null
      * if the specified point is the last in the list then returns the first point
      * Time complexity: 4 + 4n -4 = O(n)
-     * Space complexity: NEED TO BE CHANGED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+     * Space complexity: O(1) - final no dynamic allocations
      * @return the next point in the list, the first if the specified is the last or null if not in the list
      */
     public Point getNextVertex(Point p)
     {
-        if(this._head == null)
+        if(this._head == null || p == null)
         {
             return null;
         }
@@ -280,7 +288,7 @@ public class Polygon
             }
             curr = curr.getNext();
         }
-        return new Point(max);
+        return max;
     }
     private Point getRightMost()
     {
@@ -298,7 +306,7 @@ public class Polygon
             }
             curr = curr.getNext();
         }
-        return new Point(max);
+        return max;
     }
     private Point getLowest()
     {
@@ -316,6 +324,6 @@ public class Polygon
             }
             curr = curr.getNext();
         }
-        return new Point(max);
+        return max;
     }
 }

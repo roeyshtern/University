@@ -1,0 +1,44 @@
+#BlueJ class context
+comment0.target=Polygon
+comment0.text=\r\n\ Polygon\ -\ Polygon\ represented\ by\ a\ linked\ list\ of\ vertices(PointNode)\r\n\ @Author\ \:\ Roey\ Shtern\r\n\ @Version\ \:\ 21/6/2020\r\n
+comment1.params=
+comment1.target=Polygon()
+comment1.text=\r\n\ Constructs\ a\ Polygon\ object.\ \r\n\ Construct\ a\ new\ polygon\ instance\ with\ head\ set\ to\ null\ \r\n\ Time\ complexity\:\ O(1)\r\n\ Space\ complexity\:\ O(1)\r\n
+comment10.params=p
+comment10.target=int\ findVertex(Point)
+comment10.text=\r\n\ Returns\ the\ position\ of\ the\ specified\ point\ in\ the\ list,\ or\ if\ not\ in\ the\ list\ return\ -1\r\n\ Time\ complexity\:\ 4\ +\ 4*n\ \=\ O(n)\r\n\ Space\ complexity\:\ O(1)\ -\ final\ no\ dynamic\ allocations\r\n\ @return\ the\ position\ of\ the\ specified\ point\ in\ the\ list,\ or\ if\ not\ in\ the\ list\ return\ -1\r\n
+comment11.params=p
+comment11.target=Point\ getNextVertex(Point)
+comment11.text=\r\n\ Return\ copy\ of\ the\ next\ point\ according\ to\ the\ specified\ point,\ if\ the\ point\ is\ not\ in\ the\ list\ then\ returns\ null\r\n\ if\ the\ specified\ point\ is\ the\ last\ in\ the\ list\ then\ returns\ the\ first\ point\r\n\ Time\ complexity\:\ 4\ +\ 4n\ -4\ \=\ O(n)\r\n\ Space\ complexity\:\ NEED\ TO\ BE\ CHANGED\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!1\r\n\ @return\ the\ next\ point\ in\ the\ list,\ the\ first\ if\ the\ specified\ is\ the\ last\ or\ null\ if\ not\ in\ the\ list\r\n
+comment12.params=
+comment12.target=Polygon\ getBoundingBox()
+comment12.text=\r\n\ Returns\ rectangle\ that\ contains\ this\ polygon\ and\ parallel\ to\ the\ axis\r\n\ if\ the\ is\ less\ then\ 3\ vertices\ then\ returns\ null\r\n\ Time\ complexity\:\ 4\ +\ 4n\ -4\ \=\ O(n)\r\n\ Space\ complexity\:\ O(1)\ -\ final\ no\ dynamic\ allocations\r\n\ @return\ new\ polygon\ of\ rectangle\ that\ contains\ this\ polygon\ and\ if\ less\ then\ 3\ vertices\ returns\ null\r\n
+comment13.params=
+comment13.target=Point\ getLeftMost()
+comment14.params=
+comment14.target=Point\ getRightMost()
+comment15.params=
+comment15.target=Point\ getLowest()
+comment2.params=p\ pos
+comment2.target=boolean\ addVertex(Point,\ int)
+comment2.text=\r\n\ This\ function\ will\ add\ vertice\ to\ the\ linked\ list\ in\ the\ postition\ specified\r\n\ The\ first\ postition\ is\ 1,\ if\ the\ pos\ specified\ is\ occupied\ than\ the\ point\ will\ be\ insert\ as\ the\ next\ point\ in\ the\ list\r\n\ if\ the\ position\ is\ bigger\ by\ one\ from\ the\ length\ of\ list\ than\ the\ point\ will\ be\ added\ to\ the\ end\ of\ the\ list\r\n\ if\ the\ pos\ is\ bigger\ by\ two\ or\ more\ or\ less\ than\ 1\ than\ the\ function\ return\ false\ and\ not\ insert\ the\ point\r\n\ Time\ complexity\:\ 9\ +\ 4*n\ \=\ O(n)\r\n\ Space\ complexity\:\ NEED\ TO\ BE\ CHANGED\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!1\r\n\ @param\ p\ the\ point\ to\ add\ to\ polygon\r\n\ @param\ pos\ the\ position\ that\ the\ point\ will\ be\ inserted\ in\ the\ list\r\n\ @return\ true\ if\ added\ and\ false\ if\ cannot\ add\ the\ point\ to\ the\ list\r\n
+comment3.params=
+comment3.target=Point\ highestVertex()
+comment3.text=\r\n\ This\ function\ returns\ copy\ of\ the\ highest\ vertex,\ if\ there\ is\ no\ vertices\ return\ null\r\n\ Time\ complexity\:\ 4\ +\ 4*n\ \=\ O(n)\r\n\ Space\ complexity\:\ NEED\ TO\ BE\ CHANGED\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!1\r\n\ @return\ copy\ of\ the\ highest\ vertex,\ if\ there\ is\ no\ vertices\ return\ null\r\n
+comment4.params=
+comment4.target=int\ count()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment5.text=\r\n\ Returns\ a\ string\ representation\ of\ this\ Polygon(x,y),(x,y)..(x,y).\ if\ there\ is\ no\ vertices\ will\ be\ return\ a\ message\r\n\ Time\ complexity\:\ 5\ +\ 5n\ +\ 4\ +\ 3n\ \=\ O(n)\r\n\ Space\ complexity\:\ O(1)\ -\ final\ no\ dynamic\ allocations\r\n\ @return\ string\ representation\ of\ this\ Polygon(x,y),(x,y)..(x,y).\ if\ there\ is\ no\ vertices\ will\ be\ return\ a\ message\r\n
+comment6.params=
+comment6.target=double\ calcPerimeter()
+comment6.text=\r\n\ Returns\ the\ perimeter\ of\ the\ polygon,\ if\ there\ is\ only\ two\ vertices\ then\ return\ the\ distance\r\n\ if\ there\ is\ one\ or\ zero\ vertices\ than\ return\ 0\r\n\ Time\ complexity\:\ 4\ +\ 6n\ \=\ O(n)\r\n\ Space\ complexity\:\ O(1)\ -\ final\ no\ dynamic\ allocations\r\n\ @return\ the\ perimeter\ of\ the\ polygon\ or\ distance\ between\ two\ vertices\ or\ 0\ if\ 1\ or\ 0\ vertices\ in\ polygon\r\n
+comment7.params=
+comment7.target=double\ calcArea()
+comment7.text=\r\n\ Returns\ the\ area\ of\ the\ polygon,\ if\ there\ is\ less\ than\ 3\ vertices\ than\ returns\ 0\r\n\ Time\ complexity\:\ 7*n\ -\ 4\ \=\ O(n)\r\n\ Space\ complexity\:\ O(1)\r\n\ @return\ the\ area\ of\ the\ polygon,\ if\ there\ is\ less\ than\ 3\ vertices\ than\ returns\ 0\r\n
+comment8.params=head\ curr\ currNext
+comment8.target=double\ getAreaOfTriangle(PointNode,\ PointNode,\ PointNode)
+comment9.params=other
+comment9.target=boolean\ isBigger(Polygon)
+comment9.text=\r\n\ Returns\ true\ if\ this\ polygin\ area\ is\ bigger\ than\ the\ other\ area,\ otherwise\ false\r\n\ Time\ complexity\:\ O(n)\ +\ O(n)\ \=\ O(n)\r\n\ Space\ complexity\:\ O(1)\ -\ final\ no\ dynamic\ allocations\r\n\ @return\ Returns\ true\ if\ this\ polygin\ area\ is\ bigger\ than\ the\ other\ area,\ otherwise\ false\r\n
+numComments=16
