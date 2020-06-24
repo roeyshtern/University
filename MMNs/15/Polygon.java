@@ -7,6 +7,8 @@ public class Polygon
 {
     //instance variables
     private PointNode _head;
+    private final int FIRST_POS_NO_HEAD = 2;
+    private final int NOT_FOUND = -1;
     /**
      * Constructs a Polygon object. 
      * Construct a new polygon instance with head set to null 
@@ -43,14 +45,14 @@ public class Polygon
         {
             return false;
         }
-        int i = 2;
+        int i = FIRST_POS_NO_HEAD;
         PointNode curr = this._head;
         while(curr.getNext() != null && i < pos)
         {
             i++;
             curr = curr.getNext();
         }
-        if(curr.getNext() == null && i + 1 < pos)
+        if(curr.getNext() == null && i + 1 <= pos)
         {
             return false;
         }
@@ -59,8 +61,8 @@ public class Polygon
             curr.setNext(new PointNode(p));
             return true;
         }
-        PointNode temp = curr.getNext().getNext();
-        curr.setNext(new PointNode(p, temp));
+        PointNode newNode = new PointNode(p, curr.getNext());
+        curr.setNext(newNode);
         return true;
         
     }
@@ -91,7 +93,7 @@ public class Polygon
     //count the number of vertices in this polygon
     private int count()
     {
-        int i = 1;
+        int i = 0;
         PointNode curr = this._head;
         while(curr != null)
         {
@@ -124,7 +126,7 @@ public class Polygon
             }
             curr = curr.getNext();
         }
-        return finalResult;
+        return finalResult + ")";
     }
     /**
      * Returns the perimeter of the polygon, if there is only two vertices then return the distance
@@ -139,11 +141,15 @@ public class Polygon
         {
             return 0;
         }
+        if(this._head.getNext().getNext() == null)
+        {
+            return this._head.getPoint().distance(this._head.getNext().getPoint());
+        }
         PointNode curr = this._head;
         double distance = 0;
-        while(curr.getNext() != null)
+        while(curr != null)
         {
-            distance += curr.getPoint().distance(curr.getNext().getPoint());
+            distance += curr.getPoint().distance(this.getNextVertex(curr.getPoint()));
             curr = curr.getNext();
         }
         return distance;
@@ -202,7 +208,7 @@ public class Polygon
     {
         if(_head == null || p == null)
         {
-            return -1;
+            return NOT_FOUND;
         }
         PointNode curr = this._head;
         int i = 1;
@@ -215,7 +221,7 @@ public class Polygon
             i++;
             curr = curr.getNext();
         }
-        return -1;
+        return NOT_FOUND;
     }
     /**
      * Return copy of the next point according to the specified point, if the point is not in the list then returns null
