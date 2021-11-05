@@ -1,2 +1,2 @@
-con: con.c
-	gcc -g con.c -ansi -Wall -pedantic -o con
+con: contract.c
+	gcc -g contract.c -ansi -Wall -pedantic -o con
