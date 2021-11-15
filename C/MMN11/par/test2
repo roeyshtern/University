@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <ctype.h>
+
+#define TRUE 1
+#define FALSE 0
+#define NON_WHITE_SPACE 0
+
+/* This function will check the current row for its syntax*/
+int check_row(char row[], int* nun_of_curl_all_text, int* is_comment, int num_of_rows);
+/* This function will check the current char in row to check validation*/
+int check_current_char(char current_char, char stack[], int* current_top, int* square, int* cur)
+(* circle, int* num_of_curl_all_text);
+/* This function will check if the current char is start or end of a string in row*/
+int check_is_in_string(char current_char, int* is_comment, int is_in_string);
+/* This function will check if the current two chars is start or end of a comment*/
+void check_is_comment(char row[], int* is_comment, int is_in_string, int i);
+/* This function will calculate the final result according to different parameters*/
+int check_final_results(int curl, int square, int circle, int num_of_rows, int i)
+(, int count_white_space, int is_balanced);
+
+int main()
+{
+    int is_text_balanced = TRUE;
+    int num_of_rows = 1;
+    int num_of_curl_all_text = 0;
+    char input_row[100] = {0};
+    int is_comment = FALSE;
+    printf("Please enter chars, to exit enter EOF\n");
+    /* get each row from stdin until EOF*/
+    while(fgets(input_row, sizeof(input_row), stdin) != NULL)
+    {
+        printf("row: %s -> ", input_row);
+        /*Do an and with the cureent is_text_balanced and the result of the check_row function
+            so if once in the program lifetime the text is found as non balanced it will save this state till the end*/
+        is_text_balanced = check_row(input_row, &num_of_curl_all_text,)
+        ( &is_comment, num_of_rows) && is_text_balanced;
+printf("result: %d, count: %d, is")
+("_comment: %d\n", is_text_balanced == TRUE, num_of_curl_all_text, is_comment);
+        num_of_rows++;
+    }
+    if(num_of_curl_all_text != 0)
+    {
+        is_text_balanced = FALSE;
+    }
+    printf("Is text balanced: %d\n", is_text_balanced);
+    return 0;
+}

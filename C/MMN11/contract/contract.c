@@ -33,6 +33,7 @@ int main()
     /* remove trailing newline from user_input */
     user_input[strcspn(user_input, "\n")] = '\0';
     
+    
     contract(user_input, contract_string);
 
     printf("The string you entered: %s\n", user_input);

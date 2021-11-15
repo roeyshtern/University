@@ -1,5 +1,6 @@
 #include <stdio.h> /* printf */
 #include <string.h> /* strcmp */
+#include <ctype.h>
 
 #define RESET   "\033[0m"
 #define BLACK   "\033[30m"      /* Black */
@@ -41,40 +42,49 @@ int main()
 
 void contract(char s1[], char s2[])
 {
+	printf("hi\n");
     int i;
     int j = -1;
 
     int current_minimum_index = 0;
+    /* loop until end of user string */
     for (i = 0; s1[i] != '\0' ; i++)
     {
-        if((s1[i] >= ASCII_OF_SMALL_A && s1[i] < ASCII_OF_SMALL_A + 26) ||
-            (s1[i] >= ASCII_OF_CAP_A && s1[i] < ASCII_OF_CAP_A + 26) ||
-            (s1[i] >= ASCII_OF_ZERO && s1[i] < ASCII_OF_ZERO + 10))
-            {
+        /* check if char is alpha_numeric*/
+        if(isalnum(s1[i]) == TRUE)
+        {
+            /* check if the nexrt char is in the sequence or if the next is the last*/
             if(s1[i+1]  != s1[current_minimum_index] + (i - current_minimum_index)+1 || s1[i+1] == '\0')
             {
+                /* check if the sequence end with more than 2 in the sequence*/
                 if(i -current_minimum_index > 1)
                 {
                     s2[j] = '-';
                 }
+                /*update j by one and insert current user string char to output string*/
                 s2[++j] = s1[i];
+                /* update the current minimun to the next char index*/
                 current_minimum_index = i+1;
             }
+            /*check if the sequence is start is in length of one*/
             else if(i-current_minimum_index == 0)
             {
                 s2[++j] = s1[i];
             }
+            /*check if the sequence is start is in length of two*/
             else if(i -current_minimum_index == 1)
             {
                 s2[++j] = s1[i];
             }
         }
+        /*if not alpha numeric just update output string anf current minimum*/
         else
         {
             s2[++j] = s1[i];
             current_minimum_index = i+1;
         }
     }
+	printf("s2: %s\n", s2);
 }
 
 static void Test_Contract_Empty_String()
@@ -105,6 +115,7 @@ static void Test_Sequence()
 	const char *expected_output = "1-9 a-z";
 	
 	contract(str_input, str_output);
+	printf("hi: %s\n", str_output);
 	
 	if (strcmp(str_output, expected_output) != 0)
 	{
