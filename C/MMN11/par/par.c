@@ -228,7 +228,6 @@ void check_is_comment(char row[], int* is_comment, int is_in_string, int i)
 */
 int check_final_results(int curl, int square, int circle, int num_of_rows, int i, int count_white_space, int is_balanced)
 {
-    printf("curl:%d, square:%d, circle: %d, num_of_rows: %d, i: %d, count_white_spcae: %d, is_balanced: %d\n",curl, square, circle, num_of_rows, i, count_white_space, is_balanced);
     /* check if one of the counter is not reset to zero*/
     if(curl!= 0 || square != 0 || circle != 0)
     {
