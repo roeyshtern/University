@@ -37,4 +37,4 @@ complex mult_comp_comp(complex first, complex second);
 /*
  this funnction will calculate the absolute value of the given complex numbner and return the result as a real number
 */
-double abs_comp(complex comp);
+complex abs_comp(complex comp);

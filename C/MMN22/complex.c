@@ -1,12 +1,23 @@
 #include <stdio.h>
 #include "complex.h"
 
+#define TRUE 1
+#define FALSE 0
+
 /*
  this function will print the complex value it get
 */
 void print_comp(complex c)
 {
-    printf("%.2f + (%.2f)i\n", c.r, c.i);
+    printf("\n");
+    if(c.i < 0)
+    {
+        printf("%g - (%g)i\n", c.r, -1*c.i);
+    }
+    else
+    {
+        printf("%g + (%g)i\n", c.r, c.i);
+    }
 }
 /* 
  this function will do an addition action between two complex number and return the result as a complex
@@ -61,7 +72,10 @@ complex mult_comp_comp(complex first, complex second)
 /*
  this funnction will calculate the absolute value of the given complex numbner and return the result as a real number
 */
-double abs_comp(complex comp)
+complex abs_comp(complex comp)
 {
-    return sqrt(comp.r*comp.r + comp.i*comp.i);
+    complex ret;
+    ret.r = sqrt(comp.r*comp.r + comp.i*comp.i);
+    ret.i = 0;
+    return ret;
 }
