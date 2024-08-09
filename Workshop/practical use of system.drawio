@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" modified="2024-03-07T23:11:25.460Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="Ma9lQGRpQks11lBjCQqo" version="24.0.2" type="device">
+  <diagram name="‫עמוד-1‬" id="4K45nU1XahMlL3S0-Og-">
+    <mxGraphModel dx="1432" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SridBqpOXXHWM5fuZ4S5-1" value="Trainer" style="shape=mxgraph.signs.people.man_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;" parent="1" vertex="1">
+          <mxGeometry x="170" y="180" width="37" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="SridBqpOXXHWM5fuZ4S5-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="300" y="100" width="300" height="660" as="geometry" />
+        </mxCell>
+        <mxCell id="SridBqpOXXHWM5fuZ4S5-3" value="create new program" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="380" y="150" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SridBqpOXXHWM5fuZ4S5-4" value="list edit and remove clients programs" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="390" y="270" width="130" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SridBqpOXXHWM5fuZ4S5-5" value="list all programs record and updates" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="385" y="380" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SridBqpOXXHWM5fuZ4S5-9" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" parent="1" target="SridBqpOXXHWM5fuZ4S5-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="230" y="240" as="sourcePoint" />
+            <mxPoint x="280" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SridBqpOXXHWM5fuZ4S5-10" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="SridBqpOXXHWM5fuZ4S5-4" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="226" y="270" as="sourcePoint" />
+            <mxPoint x="380" y="234" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SridBqpOXXHWM5fuZ4S5-11" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.042;entryY=0.638;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="SridBqpOXXHWM5fuZ4S5-5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="190" y="310" as="sourcePoint" />
+            <mxPoint x="324" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NDxL-ks7aSlPpM-A3lOf-1" value="Trainee" style="shape=mxgraph.signs.people.man_1;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="710" y="430" width="37" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="NDxL-ks7aSlPpM-A3lOf-2" value="show profile" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="480" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="NDxL-ks7aSlPpM-A3lOf-3" value="List my programs" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="570" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="NDxL-ks7aSlPpM-A3lOf-4" value="Record new training session" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="665" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="NDxL-ks7aSlPpM-A3lOf-5" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="NDxL-ks7aSlPpM-A3lOf-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="530" as="sourcePoint" />
+            <mxPoint x="910" y="651" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NDxL-ks7aSlPpM-A3lOf-6" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.983;entryY=0.6;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="NDxL-ks7aSlPpM-A3lOf-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="720" y="540" as="sourcePoint" />
+            <mxPoint x="515" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NDxL-ks7aSlPpM-A3lOf-7" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="NDxL-ks7aSlPpM-A3lOf-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="730" y="550" as="sourcePoint" />
+            <mxPoint x="518" y="628" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

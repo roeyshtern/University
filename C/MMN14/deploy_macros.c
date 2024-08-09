@@ -3,6 +3,7 @@
 void deploy_macros(FILE* fp_before_deploy, char* file_name)
 {
     int is_macro = FALSE;
+    int i = 00;
     char* first_word = NULL;
     int current_row_of_macro = 0;
     char macro_name[MAX_LEN_MACRO_NAME] = {0};
@@ -34,7 +35,14 @@ void deploy_macros(FILE* fp_before_deploy, char* file_name)
         if(is_macro == TRUE)
         {    
             printf("In is_macro == TRUE\n");
+            
+            printf("macroname: %s, address of instructions: %p\n", current_macro->name, current_macro->instructions);
+            for (i = 0; i < 6; i++)
+            {
+                printf("instruction[%d]: %s\n",i, current_macro->instructions[i]);
+            }
             strcpy(current_macro->instructions[current_row_of_macro], currrent_line);
+            printf("After in is_macro == TRUE\n");
             current_row_of_macro++;
             continue;
         }
@@ -42,15 +50,18 @@ void deploy_macros(FILE* fp_before_deploy, char* file_name)
         {
             printf("Start of macro\n");
             strcpy(macro_name, strtok(NULL, SPACE_VALUES_STRING));
+            printf("macro_name: %s\n", macro_name);
             if(head == NULL)
             {
                 head = create_macro(macro_name, NULL);
+                current_macro = head;
+                printf("macroname: %s, address of instructions: %p\n", current_macro->name, current_macro->instructions);
             }
             else
             {
                 current_macro = create_macro(macro_name, current_macro);
             }
-            printf("After of macro\n");
+            printf("After macro\n");
             is_macro = TRUE;
             continue;
         

@@ -6,4 +6,4 @@
 #define FILE_ROW_LENGTH 81
 #define SAFETY_BUFFER 100
 #define MACRO_SEPERATOR ":"
-#define SPACE_VALUES_STRING " \r\t\v\f"
+#define SPACE_VALUES_STRING " \r\t\v\f\n"
